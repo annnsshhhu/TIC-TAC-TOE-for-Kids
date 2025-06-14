@@ -81,7 +81,7 @@ int main(){
         int iX,jX;
         int iO,jO;
         for(int m=0; ;m++){
-    cout<<"PlayerX , Enter the position (0-3) for row and column : ";
+    cout<<"PlayerX , Enter the position (0-2) for row and column : ";
     cin>>iX>>jX;
     if(board[iX][jX] == ' '){
         board[iX][jX] = 'X';
