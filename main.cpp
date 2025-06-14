@@ -101,8 +101,7 @@ int main(){
             }
         }
     }
-    
-    cout<<endl<<"Total no. of non-empty seats "<<attempt<<endl;
+   
     if(attempt == 9){
         cout<<"Tie"<<endl;
         break;
