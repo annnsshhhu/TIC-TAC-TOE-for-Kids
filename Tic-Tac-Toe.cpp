@@ -33,14 +33,8 @@ bool check(vector<vector<char>>& board,char ch){
             }
         }
         if(clarity1 == 3 || clarity2 == 3){
-            if(ch == 'X'){cout<<"You Won "<<endl;
             return true;
-            }
-            else{
-                cout<<"You lost "<<endl;
-            return true;
-            }
-        }
+    }
     }
     clarity1 = 0,clarity2 = 0;
     for(int i=0,j=0;i<3,j<3;i++,j++){
@@ -60,14 +54,8 @@ bool check(vector<vector<char>>& board,char ch){
         }
     }
     if(clarity1 == 3 || clarity2 == 3){
-            if(ch == 'X'){cout<<"You Won "<<endl;
             return true;
-            }
-            else{
-                cout<<"You lost "<<endl;
-            return true;
-            }
-        }
+    }
         return false;
 }
 
@@ -76,6 +64,13 @@ int main(){
     srand(time(0)); 
     cout<<"Welcome to TIC-TAC-TOE Game : "<<endl<<endl;
     drawBoard(board);
+    cout<<endl<<"Which version you want to play : "<<endl;
+    cout<<endl<<"1. Playing as a kid "<<endl;
+    cout<<"2. Playing with a friend "<<endl;
+    int choice ;
+    cout<<endl<<"Enter choice : ";
+    cin>>choice;
+    if(choice == 1){
     for(int k=0; ;k++){
         int attempt = 0;
         int iX,jX;
@@ -92,6 +87,7 @@ int main(){
     drawBoard(board);
     cout<<endl;
     if(check(board,'X')){
+        cout<<"You Won "<<endl;
         break;
     }
     for(int i=0;i<3;i++){
@@ -101,7 +97,7 @@ int main(){
             }
         }
     }
-   
+    
     if(attempt == 9){
         cout<<"Tie"<<endl;
         break;
@@ -119,7 +115,57 @@ int main(){
     drawBoard(board);
     cout<<endl;
     if(check(board,'O')){
+        cout<<"You lost "<<endl;
         break;
+    }
+    }
+    }
+    if(choice == 2){
+        for(int k=0; ;k++){
+        int attempt = 0;
+        int iX,jX;
+        int iO,jO;
+        for(int m=0; ;m++){
+    cout<<"PlayerX , Enter the position (0-2) for row and column : ";
+    cin>>iX>>jX;
+    if(board[iX][jX] == ' '){
+        board[iX][jX] = 'X';
+        break;
+    }
+        }
+    cout<<endl;
+    drawBoard(board);
+    cout<<endl;
+    if(check(board,'X')){
+        cout<<"Player X won"<<endl;
+        break;
+    }
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            if(board[i][j] != ' '){
+                attempt++;
+            }
+        }
+    }
+    if(attempt == 9){
+        cout<<"Tie"<<endl;
+        break;
+    }
+    for(int m=0; ;m++){
+    cout<<"PlayerO , Enter the position (0-2) for row and column : ";
+    cin>>iO>>jO;
+    if(board[iO][jO] == ' '){
+        board[iO][jO] = 'O';
+        break;
+    }
+        }
+    cout<<endl;
+    drawBoard(board);
+    cout<<endl;
+    if(check(board,'O')){
+        cout<<"Player O won"<<endl;
+        break;
+    }
     }
     }
 }
